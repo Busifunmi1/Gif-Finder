@@ -1,3 +1,5 @@
+
+
 const searchGif = () => {
 //  get the text from the search 
     let searchQuery = $('.form input:text').val();
@@ -11,7 +13,7 @@ const searchGif = () => {
             console.log(result)        
              $('.search-results').text(''); 
                       
-          for (let i = 0; i < 10; i++) {
+          for (let i = 0; i < 20; i++) {
             $('.search-results').append(`<a href="${result.data[i].images.downsized_large.url}"
              class="click-gif">
             <img class="gif-box" src="${result.data[i].images.fixed_height_small.url}" 
@@ -33,6 +35,19 @@ const searchGif = () => {
 
 
 $(document).ready(() => {
+    var input = document.getElementById("myInput");
+
+    // Execute a function when the user releases a key on the keyboard
+    input.addEventListener("keyup", function (event) {
+        // Number 13 is the "Enter" key on the keyboard
+        if (event.keyCode === 13) {
+            // Cancel the default action, if needed
+            event.preventDefault();
+            // Trigger the button element with a click
+            document.getElementById("myBtn").click();
+        }
+    });
+
 
     $('button:button').click(() => {
         searchGif();
